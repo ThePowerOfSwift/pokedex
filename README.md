@@ -4,7 +4,7 @@ A simple free and open source app that uses a nice interface from UICollectionVi
 
 ## Demo
 
-![alt tag](http://github.com/mihailsalari/pokedex/blob/master/screen.png)
+![alt tag](https://raw.githubusercontent.com/mihailsalari/pokedex/master/screen.png)
 
 ## Support
 
