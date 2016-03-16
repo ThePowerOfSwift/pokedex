@@ -1,4 +1,4 @@
-# Pokedex - Food List Created with Core Data
+# Pokedex
 
 A simple free and open source app that uses a nice interface from UICollectionViewCell with searchBar writen in Swift 2. 
 
