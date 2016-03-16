@@ -23,7 +23,7 @@ A simple free and open source app that uses a nice interface from UICollectionVi
 
 * Move to MVC
 * Alamofire
-* Pokemon API
+* Pokemon RESTful API
 * UICollectionView
 * UISearchBar
 
