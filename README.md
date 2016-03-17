@@ -4,7 +4,7 @@ A simple free and open source app that uses a nice interface from UICollectionVi
 
 ## Demo
 
-![alt tag](https://raw.githubusercontent.com/mihailsalari/pokedex/master/screen.png)
+[![Demo Doccou alpha](https://github.com/mihailsalari/pokedex/blob/master/screen2.png)](https://www.youtube.com/watch?v=9MyiDDkKddw)
 
 ## Support
 
@@ -26,6 +26,7 @@ A simple free and open source app that uses a nice interface from UICollectionVi
 * Pokemon RESTful API
 * UICollectionView
 * UISearchBar
+* UIStackView
 
 ## Bug Reports & Feature Requests
 
