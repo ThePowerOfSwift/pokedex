@@ -105,11 +105,11 @@ class Pokemon {
         self.namePrivate = name
         self.pokedexIDPrivate = pokedexID
         
-        pokemonURLPrivate = "\(urlBase)\(urlPokemon)\(self.pokedexID)"
+        pokemonURLPrivate = "\(urlBase)\(urlPokemon)\(self.pokedexID)/"
     }
     
     
-    
+    //MARK: -DownloadComplete
     func downloadPokemonDetails(completed: DownloadComplete) {
         
         let url = NSURL(string: pokemonURLPrivate)!
@@ -135,16 +135,11 @@ class Pokemon {
                     self.defensePrivate = String(defense)
                 }
                 
-                print(self.weightPrivate)
-                print(self.heightPrivate)
-                print(self.attackPrivate)
-                print(self.defensePrivate)
-                
-                
+                //
                 if let types = dict["types"] as? [Dictionary<String, String>] where types.count > 0 { // array of dicts
                     //print(types.debugDescription) for see the types
                     if let name = types[0]["name"] {
-                        self.typePrivate = name
+                        self.typePrivate = name.capitalizedString
                     }
                     
                     if types.count > 1 {
@@ -157,11 +152,11 @@ class Pokemon {
                 } else {
                 self.typePrivate = ""
                 }
-                print(self.typePrivate)
                 
+                //MARK: types
                 if let descriptionArray = dict["descriptions"] as? [Dictionary<String, String>] where descriptionArray.count > 0 {
                     
-                    if let fixURL = descriptionArray[0]["resurce_uri"] {
+                    if let fixURL = descriptionArray[0]["resource_uri"] {
                         let nsurl = NSURL(string: "\(urlBase)\(fixURL)")!
                         
                         Alamofire.request(.GET, nsurl).responseJSON(completionHandler: { (response) -> Void in
@@ -173,39 +168,39 @@ class Pokemon {
                                     print(self.descriptionPrivate)
                                 }
                             }
-                            
-                            completed() //added if rewuest is done
+                            completed()
                         })
                         
-                    } else {
-                        self.descriptionPrivate = ""
                     }
-                    // after rewuest Alamofire
-                    //Evolution
-                    
-                    if let evolutions = dict["evolutions"] as? [Dictionary<String, AnyObject>] where evolutions.count > 0 {
-                        if let to = evolutions[0]["to"] as? String {
-                            
-                            // Mega is not found
-                            //C'ant support mega pokemon right now but api still has mega data
-                            if to.rangeOfString("mega") == nil {
-                                if let uri = evolutions[0]["resource_uri"] as? String {
-                                    
-                                    let newString = uri.stringByReplacingOccurrencesOfString("/api/v1/pokemon/", withString: "")
-                                    let num = newString.stringByReplacingOccurrencesOfString("/", withString: "")
-                                    
-                                    self.nextEvolutionIDPrivate = num
-                                    self.nextEcolutionTextPrivate = to
-                                    
-                                    if let level = evolutions[0]["level"] as? Int {
-                                        self.nextEvolutionLevelPrivate = "\(level)"
-                                    }
-                                }
+                } else {
+                    self.descriptionPrivate = ""
+                }
+                
+                // after rewuest Alamofire
+                //Evolution
+                
+                if let evolutions = dict["evolutions"] as? [Dictionary<String, AnyObject>] where evolutions.count > 0 {
+                    if let to = evolutions[0]["to"] as? String {
+                        
+                        // Mega is not found
+                        //C'ant support mega pokemon right now but api still has mega data
+                        if to.rangeOfString("mega") == nil {
+                            if let uri = evolutions[0]["resource_uri"] as? String {
                                 
+                                let newString = uri.stringByReplacingOccurrencesOfString("/api/v1/pokemon/", withString: "")
+                                let num = newString.stringByReplacingOccurrencesOfString("/", withString: "")
+                                
+                                self.nextEvolutionIDPrivate = num
+                                self.nextEcolutionTextPrivate = to
+                                
+                                if let level = evolutions[0]["level"] as? Int {
+                                    self.nextEvolutionLevelPrivate = "\(level)"
+                                }
                             }
+                            
                         }
                     }
-                }
+                }//
             }
         }
     }
