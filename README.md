@@ -4,7 +4,7 @@ A simple free and open source app that uses a nice interface from UICollectionVi
 
 ## Demo
 
-[![Demo Doccou alpha](https://github.com/mihailsalari/pokedex/blob/master/screen2.png)](https://www.youtube.com/watch?v=9MyiDDkKddw)
+[![Demo Doccou alpha](https://github.com/mihailsalari/pokedex/blob/master/screen2.png)](https://www.youtube.com/watch?v=5opyorfGtEw)
 
 ## Support
 
