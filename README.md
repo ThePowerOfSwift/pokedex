@@ -41,3 +41,7 @@ No Bugs
 5. Submit a pull request.
 
 All pull requests are welcome !
+
+## License
+
+Recipe uses the MIT license. See [LICENSE](https://github.com/mihailsalari/pokedex/blob/master/LICENSE.txt) for more details.
